@@ -5,14 +5,15 @@ Copy data from your Nodriza account
 
 ## Example
 ```html
-<script src="//cdn.jsdelivr.net/gh/nodriza-io/chatbot-popup@master/dist/chatbot.js"></script>
+<script src="https//cdn.jsdelivr.net/gh/nodriza-io/chatbot-popup@master/dist/chatbot.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", event => {
     window.NodrizaChatBot.start({
       chatbot: 'https://dev.nodriza.io/bots/proposalbot/lisa-es',
       headerText: 'Nodriza Bot',
       headerTextColor: '#ffffff',
-      headerBackground: '#122543',
+      headerBackground: '#122543',  
+      zIndex: 100000,
       animationName: 'scale', // rotate, translate, skew, scale
       displayText: 'Hola, soy Bot',
       // loop: 5000, // milliseconds

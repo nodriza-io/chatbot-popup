@@ -52,6 +52,7 @@ class NodrizaChatBot {
 
     this.fatButton.id = this.fatButtonId
     this.fatButton.style.display = 'inline-block'
+    this.fatButton.style.zIndex = '1'
     this.fatButton.style.position = 'absolute'
     this.fatButton.style.cursor = 'pointer'
     this.fatButton.style.right = this.fatButtonPosition + 'px'
@@ -120,6 +121,10 @@ class NodrizaChatBot {
     this.imageIcon.src = icon
     this.reset()
   }
+  setZIndex (zIndex) {
+    this.fatButton.style.zIndex = zIndex
+    this.reset()
+  }
   setDisplayText (displayText) {
     this.textNode = document.createTextNode(displayText)
     this.reset()
@@ -149,7 +154,7 @@ class NodrizaChatBot {
     this.existFatButton() && document.body.removeChild(this.fatButton)
   }
   start (config = {}) {
-    let { displayText, animationName, icon, position, chatbot, headerText, headerBackground, headerTextColor, loop } = config
+    let { displayText, animationName, icon, position, chatbot, headerText, headerBackground, headerTextColor, loop, zIndex } = config
     icon && this.setIcon(icon)
     position && this.setPosition(position)
     chatbot && this.setIframe(chatbot)
@@ -157,6 +162,7 @@ class NodrizaChatBot {
     displayText && this.setDisplayText(displayText)
     headerBackground && this.setChatbotColor(headerBackground, headerTextColor)
     headerText && this.setChatbotName(headerText)
+    zIndex && this.setZIndex(zIndex)
     this.iframeContainer.appendChild(this.headerContainer)
     this.iframeContainer.appendChild(this.iframe)
     this.iframeContainer && this.fatButton.appendChild(this.iframeContainer)
